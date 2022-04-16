@@ -1,0 +1,41 @@
+{
+    "auth": {
+        "plugins": {
+            "awsCognitoAuthPlugin": {
+                "IdentityManager": {
+                    "Default": {}
+                },
+                "CredentialsProvider": {
+                    "CognitoIdentity": {
+                        "Default": {
+                            "PoolId": "ap-northeast-1:a2dc8ee0-0aeb-4d25-8b97-07388928014a",
+                            "Region": "ap-northeast-1"
+                        }
+                    }
+                },
+                "CognitoUserPool": {
+                    "Default": {
+                        "AppClientSecret": "1lqqsgg2q97dg31pc6dkoj9vp4eapaoo05h7mv9gg4tvvd448uur",
+                        "AppClientId": "qlgrsr7dnal3fulb2b7iaj4mn",
+                        "PoolId": "ap-northeast-1_HGtHMqDIg",
+                        "Region": "ap-northeast-1"
+                    }
+                }
+            }
+        }
+    },
+    "api": {
+        "plugins": {
+             "awsAPIPlugin": {
+                "test": {
+                    "endpointType": "REST",
+                    "endpoint": "https://e6ilpbz6wf.execute-api.ap-northeast-1.amazonaws.com/v1",
+                    "region": "ap-northeast-1",
+                    "authorizationType": "AWS_IAM",
+                    "//authorizationType": "API_KEY",
+                    "//apiKey": "nQg3oAnDU54fZ1stMVfRa1J6xo3jtyud6sMPAGJ1"
+                }
+            }
+        }
+    }
+}
