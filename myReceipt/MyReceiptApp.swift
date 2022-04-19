@@ -11,12 +11,12 @@ import AWSCognitoAuthPlugin
 import AWSAPIPlugin
 
 @main
-struct myReceiptApp: App {
+struct MyReceiptApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView()
         }
     }
 }
