@@ -12,3 +12,17 @@ class QRCodeScanVM: ObservableObject {
         print("QRCodeScanVM init")
     }
 }
+
+extension QRCodeScanVM: QRScannerViewDelegate {
+    func qrScanningSucceededWithCode(_ str: String?) {
+        print("qrScanningSucceededWithCode : \(str)")
+    }
+    
+    func qrScanningDidFail() {
+        print("qrScanningDidFail")
+    }
+    
+    func qrScanningDidStop() {
+        print("qrScanningDidStop")
+    }
+}

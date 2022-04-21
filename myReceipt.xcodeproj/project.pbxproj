@@ -13,6 +13,9 @@
 		0A027BE0280E9F0500F58BB4 /* ReceiptPeriodVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A027BDF280E9F0500F58BB4 /* ReceiptPeriodVM.swift */; };
 		0A027BE2280E9F8900F58BB4 /* ReceiptListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A027BE1280E9F8900F58BB4 /* ReceiptListVM.swift */; };
 		0A027BE4280E9FB300F58BB4 /* QRCodeScanVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A027BE3280E9FB300F58BB4 /* QRCodeScanVM.swift */; };
+		0A027BE7280EB05500F58BB4 /* DeferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A027BE6280EB05500F58BB4 /* DeferView.swift */; };
+		0A027BE9280FF8F300F58BB4 /* QRScannerUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A027BE8280FF8F300F58BB4 /* QRScannerUIView.swift */; };
+		0A027BEB280FFA4200F58BB4 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A027BEA280FFA4200F58BB4 /* AVFoundation.framework */; };
 		0A3C2B5A280802EA00E7B459 /* MyReceiptApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3C2B59280802EA00E7B459 /* MyReceiptApp.swift */; };
 		0A3C2B5C280802EA00E7B459 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3C2B5B280802EA00E7B459 /* ContentView.swift */; };
 		0A3C2B5E280802F200E7B459 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A3C2B5D280802F200E7B459 /* Assets.xcassets */; };
@@ -33,6 +36,9 @@
 		0A027BDF280E9F0500F58BB4 /* ReceiptPeriodVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptPeriodVM.swift; sourceTree = "<group>"; };
 		0A027BE1280E9F8900F58BB4 /* ReceiptListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptListVM.swift; sourceTree = "<group>"; };
 		0A027BE3280E9FB300F58BB4 /* QRCodeScanVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeScanVM.swift; sourceTree = "<group>"; };
+		0A027BE6280EB05500F58BB4 /* DeferView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeferView.swift; sourceTree = "<group>"; };
+		0A027BE8280FF8F300F58BB4 /* QRScannerUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerUIView.swift; sourceTree = "<group>"; };
+		0A027BEA280FFA4200F58BB4 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		0A3C2B56280802EA00E7B459 /* myReceipt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myReceipt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A3C2B59280802EA00E7B459 /* MyReceiptApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyReceiptApp.swift; sourceTree = "<group>"; };
 		0A3C2B5B280802EA00E7B459 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -49,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A027BEB280FFA4200F58BB4 /* AVFoundation.framework in Frameworks */,
 				0A3C2B6928081AC500E7B459 /* AWSAPIPlugin in Frameworks */,
 				0A3C2B6B28081AC500E7B459 /* Amplify in Frameworks */,
 				0A3C2B742809B84100E7B459 /* AWSCognitoAuthPlugin in Frameworks */,
@@ -58,6 +65,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A027BE5280EB02F00F58BB4 /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				0A027BE6280EB05500F58BB4 /* DeferView.swift */,
+				0A027BE8280FF8F300F58BB4 /* QRScannerUIView.swift */,
+			);
+			path = CustomView;
+			sourceTree = "<group>";
+		};
 		0A3C2B4D280802EA00E7B459 = {
 			isa = PBXGroup;
 			children = (
@@ -79,6 +95,7 @@
 		0A3C2B58280802EA00E7B459 /* myReceipt */ = {
 			isa = PBXGroup;
 			children = (
+				0A027BE5280EB02F00F58BB4 /* CustomView */,
 				0A3C2B77280AB88800E7B459 /* Receipt */,
 				0A3C2B6F28095F4C00E7B459 /* Model */,
 				0A3C2B59280802EA00E7B459 /* MyReceiptApp.swift */,
@@ -118,6 +135,7 @@
 		0A3C2B722809B84100E7B459 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0A027BEA280FFA4200F58BB4 /* AVFoundation.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -215,7 +233,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A027BE7280EB05500F58BB4 /* DeferView.swift in Sources */,
 				0A3C2B79280AB92900E7B459 /* ReceiptPeriodView.swift in Sources */,
+				0A027BE9280FF8F300F58BB4 /* QRScannerUIView.swift in Sources */,
 				0A027BE4280E9FB300F58BB4 /* QRCodeScanVM.swift in Sources */,
 				0A3C2B5C280802EA00E7B459 /* ContentView.swift in Sources */,
 				0A027BE0280E9F0500F58BB4 /* ReceiptPeriodVM.swift in Sources */,
@@ -358,6 +378,7 @@
 				DEVELOPMENT_TEAM = J8ZCN3VN8A;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "要使用相機";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -388,6 +409,7 @@
 				DEVELOPMENT_TEAM = J8ZCN3VN8A;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "要使用相機";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

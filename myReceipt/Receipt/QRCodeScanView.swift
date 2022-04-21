@@ -8,10 +8,37 @@
 import SwiftUI
 
 struct QRCodeScanView: View {
+    // 可用來關閉自己頁面的環境變數
+    @Environment(\.presentationMode) var presentationMode
+    
     @StateObject var viewModel: QRCodeScanVM
     
     var body: some View {
-        Text("QRCodeScanMainView")
+        ZStack {
+            // MARK: 相機畫面
+            QrCodeScannerView(delegate: viewModel)
+            
+            // MARK: 右上角的關閉按鈕
+            HStack {
+                Spacer()
+                
+                VStack {
+                    Button {
+                        presentationMode.wrappedValue.dismiss()
+                    } label: {
+                        Image(systemName: "xmark")
+                            .resizable()
+                            .renderingMode(.template)
+                            .foregroundColor(.white)
+                            .frame(width: 25, height: 25)
+                            .padding()
+                            .background(.clear)
+                    }
+
+                    Spacer()
+                }
+            }
+        }
     }
 }
 
