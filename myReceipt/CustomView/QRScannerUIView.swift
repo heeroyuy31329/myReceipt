@@ -17,7 +17,7 @@ import SwiftUI
 
 // MARK: Delegate
 protocol QRScannerViewDelegate: AnyObject {
-    func qrScanningSucceededWithCode(_ str: String?)
+    func qrScanningSucceededWithCode(_ str: [String]?)
     func qrScanningDidFail()
     func qrScanningDidStop()
 }
@@ -127,7 +127,7 @@ extension QRScannerUIView {
     }
     
     /// 掃描成功
-    func scanningSuccess(code: String) {
+    func scanningSuccess(code: [String]) {
         delegate?.qrScanningSucceededWithCode(code)
     }
     
@@ -136,6 +136,12 @@ extension QRScannerUIView {
         captureSession = nil
         delegate?.qrScanningDidFail()
     }
+    
+    /// 判斷是否為發票資料
+    /// "**"開頭為發票明細資料，因此要回傳false
+    func checkReceipt(receiptString: String) -> Bool {
+        return !receiptString.starts(with: "**")
+    }
 }
 
 extension QRScannerUIView: AVCaptureMetadataOutputObjectsDelegate {
@@ -143,12 +149,35 @@ extension QRScannerUIView: AVCaptureMetadataOutputObjectsDelegate {
     func metadataOutput(_ output: AVCaptureMetadataOutput,
                         didOutput metadataObjects: [AVMetadataObject],
                         from connection: AVCaptureConnection) {
-        if let metadataObject = metadataObjects.first as? AVMetadataMachineReadableCodeObject {
-            guard let stringValue = metadataObject.stringValue else { return }
+
+        // 同時掃到兩個的時候才開始解析
+        if metadataObjects.count == 2 {
+            // 取出QR code字串
+            var receiptQRCodes = [String]()
+            for metadataObject in metadataObjects {
+                if let metadataObject = metadataObject as? AVMetadataMachineReadableCodeObject,
+                   let stringValue = metadataObject.stringValue {
+                    receiptQRCodes.append(stringValue)
+                }
+            }
             
-            print("QR Code value : \(stringValue)")
+            // 把發票資料排序到第一筆，明細資料第二筆
+            receiptQRCodes.sort { leftValue, rightValue in
+                checkReceipt(receiptString: leftValue)
+            }
             
-            scanningSuccess(code: stringValue)
+//            for receiptQRCode in receiptQRCodes {
+//                print("QRCode value : \(receiptQRCode)")
+//            }
+  
+            // 停止掃描
+            stopScanning()
+            
+            // 震動
+            AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
+            
+            // 掃描成功
+            scanningSuccess(code: receiptQRCodes)
         }
     }
 }
