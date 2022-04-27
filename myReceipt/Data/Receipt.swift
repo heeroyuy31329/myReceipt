@@ -14,7 +14,7 @@ enum PriceStatus: Int, Codable {
 }
 
 struct Receipt: Codable {
-    let id: String                          // 發票號碼
+    let receiptId: String                   // 發票號碼
     let year: String                        // 發票開立時間 - 年
     let month: String                       // 發票開立時間 - 月
     let day: String                         // 發票開立時間 - 日
@@ -23,4 +23,5 @@ struct Receipt: Codable {
     let sellerCode: String                  // 賣方統編
     var isPrice: PriceStatus = .notOpen     // 是否中將
     var priceMoney: Int = 0                 // 中獎金額
+    var userId: String = "my"               // 使用者id (這邊先寫死資料)
 }

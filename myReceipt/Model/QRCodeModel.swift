@@ -22,7 +22,7 @@ class QRCodeModel {
         let money = Int(qrCodeString.substring(with: 29..<37), radix: 16) ?? 0
         
         // 建立物件
-        let receipt = Receipt(id: qrCodeString.substring(with: 0..<10),
+        let receipt = Receipt(receiptId: qrCodeString.substring(with: 0..<10),
                               year: year,
                               month: month,
                               day: qrCodeString.substring(with: 15..<17),
