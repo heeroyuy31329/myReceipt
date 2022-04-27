@@ -17,6 +17,13 @@ struct QRCodeScanView: View {
         ZStack {
             // MARK: 相機畫面
             QrCodeScannerView(delegate: viewModel)
+                .onChange(of: viewModel.isScanEnd) { isScanEnd in
+                    if isScanEnd {
+                        
+                        // 關閉自己
+                        presentationMode.wrappedValue.dismiss()
+                    }
+                }
             
             // MARK: 右上角的關閉按鈕
             HStack {

@@ -8,6 +8,8 @@
 import Foundation
 
 class QRCodeScanVM: ObservableObject {
+    @Published var isScanEnd = false    // 掃描結束
+    
     init() {
         print("QRCodeScanVM init")
     }
@@ -15,9 +17,18 @@ class QRCodeScanVM: ObservableObject {
 
 extension QRCodeScanVM: QRScannerViewDelegate {
     func qrScanningSucceededWithCode(_ str: [String]?) {
-        if let str = str {
-            for receiptQRCode in str {
-                print("qrScanningSucceededWithCode : \(receiptQRCode)")
+        if let receiptQRCodes = str {
+            QRCodeModel.shared.parseQRCode(receiptQRCodes) { result in
+                switch result {
+                case .success(_):
+                    DispatchQueue.main.async {
+                        print("ScanEnd")
+                        self.isScanEnd = true
+                    }
+                case .failure(_):
+                    print("QR code 掃描失敗")
+                }
+                
             }
         }
     }

@@ -16,6 +16,10 @@
 		0A027BE7280EB05500F58BB4 /* DeferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A027BE6280EB05500F58BB4 /* DeferView.swift */; };
 		0A027BE9280FF8F300F58BB4 /* QRScannerUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A027BE8280FF8F300F58BB4 /* QRScannerUIView.swift */; };
 		0A027BEB280FFA4200F58BB4 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A027BEA280FFA4200F58BB4 /* AVFoundation.framework */; };
+		0A027BEE2817DB0E00F58BB4 /* QRCodeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A027BED2817DB0E00F58BB4 /* QRCodeModel.swift */; };
+		0A027BF12817DEF900F58BB4 /* Receipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A027BF02817DEF900F58BB4 /* Receipt.swift */; };
+		0A027BF42817EA9800F58BB4 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A027BF32817EA9800F58BB4 /* String+.swift */; };
+		0A027BF62818384100F58BB4 /* ReceiptModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A027BF52818384100F58BB4 /* ReceiptModel.swift */; };
 		0A3C2B5A280802EA00E7B459 /* MyReceiptApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3C2B59280802EA00E7B459 /* MyReceiptApp.swift */; };
 		0A3C2B5C280802EA00E7B459 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3C2B5B280802EA00E7B459 /* ContentView.swift */; };
 		0A3C2B5E280802F200E7B459 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A3C2B5D280802F200E7B459 /* Assets.xcassets */; };
@@ -39,6 +43,10 @@
 		0A027BE6280EB05500F58BB4 /* DeferView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeferView.swift; sourceTree = "<group>"; };
 		0A027BE8280FF8F300F58BB4 /* QRScannerUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerUIView.swift; sourceTree = "<group>"; };
 		0A027BEA280FFA4200F58BB4 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		0A027BED2817DB0E00F58BB4 /* QRCodeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeModel.swift; sourceTree = "<group>"; };
+		0A027BF02817DEF900F58BB4 /* Receipt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Receipt.swift; sourceTree = "<group>"; };
+		0A027BF32817EA9800F58BB4 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		0A027BF52818384100F58BB4 /* ReceiptModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptModel.swift; sourceTree = "<group>"; };
 		0A3C2B56280802EA00E7B459 /* myReceipt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myReceipt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A3C2B59280802EA00E7B459 /* MyReceiptApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyReceiptApp.swift; sourceTree = "<group>"; };
 		0A3C2B5B280802EA00E7B459 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -74,6 +82,22 @@
 			path = CustomView;
 			sourceTree = "<group>";
 		};
+		0A027BEF2817DDC100F58BB4 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				0A027BF02817DEF900F58BB4 /* Receipt.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		0A027BF22817EA8600F58BB4 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				0A027BF32817EA9800F58BB4 /* String+.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		0A3C2B4D280802EA00E7B459 = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +119,8 @@
 		0A3C2B58280802EA00E7B459 /* myReceipt */ = {
 			isa = PBXGroup;
 			children = (
+				0A027BF22817EA8600F58BB4 /* Extension */,
+				0A027BEF2817DDC100F58BB4 /* Data */,
 				0A027BE5280EB02F00F58BB4 /* CustomView */,
 				0A3C2B77280AB88800E7B459 /* Receipt */,
 				0A3C2B6F28095F4C00E7B459 /* Model */,
@@ -128,6 +154,8 @@
 			isa = PBXGroup;
 			children = (
 				0A027BD9280D49A800F58BB4 /* APIModel.swift */,
+				0A027BED2817DB0E00F58BB4 /* QRCodeModel.swift */,
+				0A027BF52818384100F58BB4 /* ReceiptModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -235,11 +263,15 @@
 			files = (
 				0A027BE7280EB05500F58BB4 /* DeferView.swift in Sources */,
 				0A3C2B79280AB92900E7B459 /* ReceiptPeriodView.swift in Sources */,
+				0A027BF12817DEF900F58BB4 /* Receipt.swift in Sources */,
+				0A027BEE2817DB0E00F58BB4 /* QRCodeModel.swift in Sources */,
 				0A027BE9280FF8F300F58BB4 /* QRScannerUIView.swift in Sources */,
 				0A027BE4280E9FB300F58BB4 /* QRCodeScanVM.swift in Sources */,
 				0A3C2B5C280802EA00E7B459 /* ContentView.swift in Sources */,
+				0A027BF42817EA9800F58BB4 /* String+.swift in Sources */,
 				0A027BE0280E9F0500F58BB4 /* ReceiptPeriodVM.swift in Sources */,
 				0A3C2B7B280AB94300E7B459 /* ReceiptListView.swift in Sources */,
+				0A027BF62818384100F58BB4 /* ReceiptModel.swift in Sources */,
 				0A3C2B76280AB81E00E7B459 /* MainView.swift in Sources */,
 				0A027BDA280D49A800F58BB4 /* APIModel.swift in Sources */,
 				0A3C2B5A280802EA00E7B459 /* MyReceiptApp.swift in Sources */,
