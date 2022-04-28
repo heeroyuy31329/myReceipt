@@ -8,7 +8,10 @@
 import Foundation
 
 class ReceiptListVM: ObservableObject {
-    init() {
-        print("ReceiptListVM init")
+    @Published var period: String!
+    
+    init(period: String?) {
+        self.period = period
+//        print("ReceiptListVM init : \(self.period)")
     }
 }

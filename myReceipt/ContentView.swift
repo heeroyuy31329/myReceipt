@@ -15,8 +15,8 @@ struct ContentView: View {
             Button ("click") {
                 print("bububububub")
                 let queryParams = ["paraH" : "paraH"]
-                let body = ["paraB" : "paraB"]
-                let bodyJson = try! JSONEncoder().encode(body)
+//                let body = ["paraB" : "paraB"]
+//                let bodyJson = try! JSONEncoder().encode(body)
                 APIModel.shared.requset(method: .get, url: "/", queryParameters: queryParams/*, body: bodyJson*/) { result in
                     switch result {
                     case .success(let data):

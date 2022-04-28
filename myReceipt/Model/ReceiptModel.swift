@@ -23,4 +23,21 @@ class ReceiptModel {
             }
         }
     }
+    
+    /// 取得年期別資料
+    func getReceiptPeriodByUser(_ userId: String, _ result: @escaping (Result<[String], Error>) -> Void) {
+        let queryParams = ["userId": userId]
+        
+        APIModel.shared.requset(method: .get, url: "/receipt/period", queryParameters: queryParams) { responseResult in
+            switch responseResult {
+            case .success(let data):
+                let periods = try! JSONDecoder().decode([String].self, from: data)
+                result(.success(periods))
+            case .failure(let error):
+                result(.failure(error))
+            }
+        }
+    }
+    
+    /// 取得改期別的發票資料
 }

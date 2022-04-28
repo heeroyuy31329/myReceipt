@@ -18,6 +18,6 @@ struct ReceiptListView: View {
 
 struct ReceiptList_Previews: PreviewProvider {
     static var previews: some View {
-        ReceiptListView(viewModel: .init())
+        ReceiptListView(viewModel: .init(period: nil))
     }
 }

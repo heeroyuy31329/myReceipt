@@ -12,10 +12,23 @@ struct ReceiptPeriodView: View {
     
     var body: some View {
         VStack {
-            Text("ReceiptPeriod")
-            Button ("next") {
-                viewModel.toListPage = true
+            List(viewModel.periodsData, id: \.self) { period in
+                ZStack {
+                    Color(.white)
+                        .onTapGesture {
+                            viewModel.selectedPeriod = period
+                            viewModel.toListPage = true
+                        }
+                    
+                    HStack {
+                        Text("\(period.substring(to: 3)) 年 \(PeriodModel.shared.periodToMonth(period: period.substring(from: 3)))")
+                        
+                        Spacer()
+                    }
+                    
+                }
             }
+            .listStyle(PlainListStyle())
         }
         .navigationTitle("年期")
         .toolbar {
@@ -33,9 +46,12 @@ struct ReceiptPeriodView: View {
         .background {
             // MARK: NavigationLink
             NavigationLink(isActive: $viewModel.toListPage) {
-                ReceiptListView(viewModel: .init())
+                ReceiptListView(viewModel: .init(period: viewModel.selectedPeriod))
             } label: {}
             .isDetailLink(false)
+        }
+        .onAppear {
+            viewModel.getPeriodData()
         }
     }
 }

@@ -16,7 +16,7 @@ class QRCodeModel {
         // 計算年期別
         let year = qrCodeString.substring(with: 10..<13)
         let month = qrCodeString.substring(with: 13..<15)
-        let period = year + monthToPeriod(month: month)
+        let period = year + PeriodModel.shared.monthToPeriod(month: month)
         
         // 消費金額轉換，16進制 -> 10進制
         let money = Int(qrCodeString.substring(with: 29..<37), radix: 16) ?? 0
@@ -34,23 +34,5 @@ class QRCodeModel {
             result(.success(NSNull()))
         }
 //        print("receipt : \(receipt)")
-    }
-    
-    private func monthToPeriod(month: String) -> String {
-        if month <= "02" {
-            return "02"
-        } else if month <= "04" {
-            return "04"
-        } else if month <= "06" {
-            return "06"
-        } else if month <= "08" {
-            return "08"
-        } else if month <= "10" {
-            return "10"
-        } else if month <= "12" {
-            return "12"
-        } else {
-            return ""
-        }
     }
 }

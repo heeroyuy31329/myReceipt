@@ -20,6 +20,7 @@
 		0A027BF12817DEF900F58BB4 /* Receipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A027BF02817DEF900F58BB4 /* Receipt.swift */; };
 		0A027BF42817EA9800F58BB4 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A027BF32817EA9800F58BB4 /* String+.swift */; };
 		0A027BF62818384100F58BB4 /* ReceiptModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A027BF52818384100F58BB4 /* ReceiptModel.swift */; };
+		0A027BF8281AE93800F58BB4 /* PeriodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A027BF7281AE93800F58BB4 /* PeriodModel.swift */; };
 		0A3C2B5A280802EA00E7B459 /* MyReceiptApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3C2B59280802EA00E7B459 /* MyReceiptApp.swift */; };
 		0A3C2B5C280802EA00E7B459 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3C2B5B280802EA00E7B459 /* ContentView.swift */; };
 		0A3C2B5E280802F200E7B459 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A3C2B5D280802F200E7B459 /* Assets.xcassets */; };
@@ -47,6 +48,7 @@
 		0A027BF02817DEF900F58BB4 /* Receipt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Receipt.swift; sourceTree = "<group>"; };
 		0A027BF32817EA9800F58BB4 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		0A027BF52818384100F58BB4 /* ReceiptModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptModel.swift; sourceTree = "<group>"; };
+		0A027BF7281AE93800F58BB4 /* PeriodModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodModel.swift; sourceTree = "<group>"; };
 		0A3C2B56280802EA00E7B459 /* myReceipt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myReceipt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A3C2B59280802EA00E7B459 /* MyReceiptApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyReceiptApp.swift; sourceTree = "<group>"; };
 		0A3C2B5B280802EA00E7B459 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 				0A027BD9280D49A800F58BB4 /* APIModel.swift */,
 				0A027BED2817DB0E00F58BB4 /* QRCodeModel.swift */,
 				0A027BF52818384100F58BB4 /* ReceiptModel.swift */,
+				0A027BF7281AE93800F58BB4 /* PeriodModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 				0A027BE0280E9F0500F58BB4 /* ReceiptPeriodVM.swift in Sources */,
 				0A3C2B7B280AB94300E7B459 /* ReceiptListView.swift in Sources */,
 				0A027BF62818384100F58BB4 /* ReceiptModel.swift in Sources */,
+				0A027BF8281AE93800F58BB4 /* PeriodModel.swift in Sources */,
 				0A3C2B76280AB81E00E7B459 /* MainView.swift in Sources */,
 				0A027BDA280D49A800F58BB4 /* APIModel.swift in Sources */,
 				0A3C2B5A280802EA00E7B459 /* MyReceiptApp.swift in Sources */,
