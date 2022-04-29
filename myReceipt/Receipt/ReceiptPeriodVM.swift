@@ -27,7 +27,7 @@ class ReceiptPeriodVM: ObservableObject {
                 DispatchQueue.main.sync {
                     self.periodsData = periods
                     self.periodsData.sort(by: >)    // 最新的資料在最前面
-                    print("periodsData : \(self.periodsData)")
+//                    print("periodsData : \(self.periodsData)")
                 }
             case .failure(let error):
                 print("getPeriodData error : \(error)")

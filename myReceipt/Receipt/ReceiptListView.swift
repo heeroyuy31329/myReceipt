@@ -11,8 +11,32 @@ struct ReceiptListView: View {
     @StateObject var viewModel: ReceiptListVM
     
     var body: some View {
-        Text("ReceiptList")
-            .navigationTitle("細節")
+        VStack {
+            List(viewModel.receiptList, id: \.receiptId) { receipt in
+                
+                HStack {
+                    VStack(alignment: .leading, spacing: 5.0) {
+                        Text("發票號碼：\(receipt.receiptId.substring(to: 2))-\(receipt.receiptId.substring(from: 2))")
+                        
+                        Text("消費日期：\(receipt.year) 年 \(receipt.month) 月 \(receipt.day) 日")
+                        
+                        Text("消費金額：\(receipt.money) 元")
+                    }
+                    
+                    Spacer()
+                    
+                    VStack(alignment: .trailing, spacing: 5.0) {
+                        Text(receipt.isPrice.discription())
+                        Text("\(receipt.priceMoney) 元")
+                    }
+                }
+            }
+            .listStyle(PlainListStyle())
+        }
+        .navigationTitle("\(viewModel.period.substring(to: 3)) 年 \(PeriodModel.shared.periodToMonth(period: viewModel.period.substring(from: 3)))")
+        .onAppear {
+            viewModel.getReceiptList()
+        }
     }
 }
 

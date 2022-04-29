@@ -40,4 +40,17 @@ class ReceiptModel {
     }
     
     /// 取得改期別的發票資料
+    func getReceiptListByUser(_ userId: String, _ period: String, _ result: @escaping (Result<[Receipt], Error>) -> Void) {
+        let queryParams = ["userId": userId, "period": period]
+        
+        APIModel.shared.requset(method: .get, url: "/receipt", queryParameters: queryParams) { responseResult in
+            switch responseResult {
+            case .success(let data):
+                let receiptList = try! JSONDecoder().decode([Receipt].self, from: data)
+                result(.success(receiptList))
+            case .failure(let error):
+                result(.failure(error))
+            }
+        }
+    }
 }

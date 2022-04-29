@@ -11,6 +11,17 @@ enum PriceStatus: Int, Codable {
     case noPrice = 0    // 未中將
     case gotPrice = 1   // 有中獎
     case notOpen = 2    // 未開獎
+    
+    func discription() -> String {
+        switch self {
+        case .noPrice:
+            return "未中獎"
+        case .gotPrice:
+            return "有中獎"
+        case .notOpen:
+            return "未開獎"
+        }
+    }
 }
 
 struct Receipt: Codable {
@@ -21,7 +32,7 @@ struct Receipt: Codable {
     let period: String                      // 發票開立年期別
     let money: Int                          // 發票金額
     let sellerCode: String                  // 賣方統編
-    var isPrice: PriceStatus = .notOpen     // 是否中將
+    var isPrice: PriceStatus = .notOpen     // 是否中獎
     var priceMoney: Int = 0                 // 中獎金額
     var userId: String = "my"               // 使用者id (這邊先寫死資料)
 }
