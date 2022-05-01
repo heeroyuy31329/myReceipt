@@ -26,8 +26,8 @@ struct ReceiptListView: View {
                     Spacer()
                     
                     VStack(alignment: .trailing, spacing: 5.0) {
-                        Text(receipt.isPrice.discription())
-                        Text("\(receipt.priceMoney) 元")
+                        Text(receipt.isPrize.discription())
+                        Text("\(receipt.prizeMoney) 元")
                     }
                 }
             }

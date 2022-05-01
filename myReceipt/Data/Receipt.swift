@@ -32,7 +32,7 @@ struct Receipt: Codable {
     let period: String                      // 發票開立年期別
     let money: Int                          // 發票金額
     let sellerCode: String                  // 賣方統編
-    var isPrice: PriceStatus = .notOpen     // 是否中獎
-    var priceMoney: Int = 0                 // 中獎金額
+    var isPrize: PriceStatus = .notOpen     // 是否中獎
+    var prizeMoney: Int = 0                 // 中獎金額
     var userId: String = "my"               // 使用者id (這邊先寫死資料)
 }
