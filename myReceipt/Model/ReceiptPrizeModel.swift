@@ -16,8 +16,8 @@ class ReceiptPrizeModel {
                                         code: "200",
                                         msg: "查詢成功",
                                         invoYm: peroid,
-                                        superPrizeNo: "18927486",
-                                        spcPrizeNo: "82050976",
+                                        superPrizeNo: "18927486",// 18927486
+                                        spcPrizeNo: "82050976",// 82050976
                                         spcPrizeNo2: "",
                                         spcPrizeNo3: "",
                                         firstPrizeNo1: "46596321",

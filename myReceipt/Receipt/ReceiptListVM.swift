@@ -37,8 +37,9 @@ class ReceiptListVM: ObservableObject {
                             case .success(let data):
                                 DispatchQueue.main.async {
                                     self.receiptPrizeData[self.period] = data
-                                    print("getReceiptPrizeByPeriod receiptPrizeData : \(self.receiptPrizeData)")
-                                    print("取資料後兌獎")
+//                                    print("getReceiptPrizeByPeriod receiptPrizeData : \(self.receiptPrizeData)")
+//                                    print("取資料後兌獎")
+                                    self.comparePrize()
                                 }
                             case .failure(let error):
                                 print("getReceiptPrizeByPeriod error : \(error)")
@@ -52,6 +53,29 @@ class ReceiptListVM: ObservableObject {
             case .failure(let error):
                 print("getPeriodData error : \(error)")
             }
+        }
+    }
+    
+    func comparePrize() {
+        // 取出當期別的中獎資料
+        if let prizeData = receiptPrizeData[period] {
+            // 這方法會報錯，因為 for in出來的物件是let，不能作變更，而在比對的參數中使用了inout機制會需要修改資料，因此要用下面那種方式利用index的方式直接取得物件
+//            for receipt in receiptList {
+//                // 特別獎
+//                PrizeModel.shared.compareAll(&receipt, prizeData.superPrizeNo, prizeData.superPrizeAmt)
+//            }
+            
+            for i in receiptList.indices {
+                // 特別獎 - 1000萬元
+                PrizeModel.shared.compareAll(&receiptList[i], prizeData.superPrizeNo, prizeData.superPrizeAmt)
+                // 特獎 - 200萬元
+                PrizeModel.shared.compareAll(&receiptList[i], prizeData.spcPrizeNo, prizeData.spcPrizeAmt)
+                
+                // 增開六獎 - 200元
+                PrizeModel.shared.compareAll(&receiptList[i], prizeData.sixthPrizeNo1, prizeData.sixthPrizeAmt)
+            }
+
+            print("兌獎結果：\(receiptList)")
         }
     }
 }
