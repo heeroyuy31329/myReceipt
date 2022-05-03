@@ -20,9 +20,9 @@ class ReceiptPrizeModel {
                                         spcPrizeNo: "82050976",// 82050976
                                         spcPrizeNo2: "",
                                         spcPrizeNo3: "",
-                                        firstPrizeNo1: "46596321",
-                                        firstPrizeNo2: "75704516",
-                                        firstPrizeNo3: "48632657",
+                                        firstPrizeNo1: "46596321",// 46596321
+                                        firstPrizeNo2: "75704516",// 75704516
+                                        firstPrizeNo3: "48632657",// 48632657
                                         firstPrizeNo4: "",
                                         firstPrizeNo5: "",
                                         firstPrizeNo6: "",

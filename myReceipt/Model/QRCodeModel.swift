@@ -28,7 +28,8 @@ class QRCodeModel {
                               day: qrCodeString.substring(with: 15..<17),
                               period: period,
                               money: money,
-                              sellerCode: qrCodeString.substring(with: 45..<53))
+                              sellerCode: qrCodeString.substring(with: 45..<53),
+                              noPrizeNo: qrCodeString.substring(with: 2..<10))
         
         ReceiptModel.shared.putReceiptToServer(receipt) { _ in
             result(.success(NSNull()))

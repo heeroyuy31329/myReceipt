@@ -16,7 +16,12 @@ struct ReceiptListView: View {
                 
                 HStack {
                     VStack(alignment: .leading, spacing: 5.0) {
-                        Text("發票號碼：\(receipt.receiptId.substring(to: 2))-\(receipt.receiptId.substring(from: 2))")
+                        HStack(spacing: 0) {
+                            Text("發票號碼：\(receipt.receiptId.substring(to: 2)) - ")
+                            Text("\(receipt.noPrizeNo)")
+                            Text("\(receipt.gotPrizeNo)")
+                                .foregroundColor(.red)
+                        }
                         
                         Text("消費日期：\(receipt.year) 年 \(receipt.month) 月 \(receipt.day) 日")
                         

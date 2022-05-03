@@ -17,7 +17,7 @@ class ReceiptPeriodVM: ObservableObject {
     @Published var selectedPeriod = ""      // 選到的年期別
     
     init() {
-        print("ReceiptPeriodVM init")
+//        print("ReceiptPeriodVM init")
     }
     
     func getPeriodData() {

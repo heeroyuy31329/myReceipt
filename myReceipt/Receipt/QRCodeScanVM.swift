@@ -11,7 +11,7 @@ class QRCodeScanVM: ObservableObject {
     @Published var isScanEnd = false    // 掃描結束
     
     init() {
-        print("QRCodeScanVM init")
+//        print("QRCodeScanVM init")
     }
 }
 
@@ -22,7 +22,7 @@ extension QRCodeScanVM: QRScannerViewDelegate {
                 switch result {
                 case .success(_):
                     DispatchQueue.main.async {
-                        print("ScanEnd")
+//                        print("ScanEnd")
                         self.isScanEnd = true
                     }
                 case .failure(_):
@@ -34,10 +34,10 @@ extension QRCodeScanVM: QRScannerViewDelegate {
     }
     
     func qrScanningDidFail() {
-        print("qrScanningDidFail")
+//        print("qrScanningDidFail")
     }
     
     func qrScanningDidStop() {
-        print("qrScanningDidStop")
+//        print("qrScanningDidStop")
     }
 }

@@ -29,6 +29,9 @@ struct ReceiptPeriodView: View {
                 }
             }
             .listStyle(PlainListStyle())
+            .refreshable {
+                viewModel.getPeriodData()
+            }
         }
         .navigationTitle("年期")
         .toolbar {
@@ -38,7 +41,7 @@ struct ReceiptPeriodView: View {
                 Image("icon_add")
             }
             .sheet(isPresented: $viewModel.toQRCodePage) {
-                print("dismiss")
+                viewModel.getPeriodData()
             } content: {
                 QRCodeScanView(viewModel: .init())
             }
