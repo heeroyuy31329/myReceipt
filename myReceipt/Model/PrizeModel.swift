@@ -35,10 +35,10 @@ class PrizeModel {
     func compare(_ receipts: inout [Receipt], _ prize: ReceiptPrize) {
         // 這方法會報錯，因為 for in出來的物件是let，不能作變更，而在比對的參數中使用了inout機制會需要修改資料，因此要用下面那種方式利用index的方式直接取得物件
 //            for receipt in receiptList {
-//                // 特別獎
 //                PrizeModel.shared.compareAll(&receipt, prizeData.superPrizeNo, prizeData.superPrizeAmt)
 //            }
         
+    compare :
         for i in receipts.indices {
             // 特別獎 - 1000萬元
             if compareReceiptNo(receipts[i], prize.superPrizeNo) {
@@ -47,7 +47,12 @@ class PrizeModel {
                 receipts[i].noPrizeNo = ""
                 receipts[i].gotPrizeNo = prize.superPrizeNo
                 receipts[i].prizeMoney = Int(prize.superPrizeAmt) ?? 0
+                
+                continue
+            } else {
+                receipts[i].isPrize = .noPrice
             }
+            
             // 特獎 - 200萬元
             if compareReceiptNo(receipts[i], prize.spcPrizeNo) {
                 // 變更中將資訊
@@ -55,6 +60,10 @@ class PrizeModel {
                 receipts[i].noPrizeNo = ""
                 receipts[i].gotPrizeNo = prize.spcPrizeNo
                 receipts[i].prizeMoney = Int(prize.spcPrizeAmt) ?? 0
+                
+                continue
+            } else {
+                receipts[i].isPrize = .noPrice
             }
             
             // 頭獎部分
@@ -89,7 +98,9 @@ class PrizeModel {
                         }
                         
                         // 中獎後直接換下一組號碼
-                        break
+                        continue compare
+                    } else {
+                        receipts[i].isPrize = .noPrice
                     }
                 }
             }
@@ -101,6 +112,10 @@ class PrizeModel {
                 receipts[i].noPrizeNo = receipts[i].receiptId.substring(with: 2..<7)    // 數字部分前5碼
                 receipts[i].gotPrizeNo = prize.sixthPrizeNo1                            // 數字部分後3碼
                 receipts[i].prizeMoney = Int(prize.sixthPrizeAmt) ?? 0
+                
+                continue
+            } else {
+                receipts[i].isPrize = .noPrice
             }
         }
     }

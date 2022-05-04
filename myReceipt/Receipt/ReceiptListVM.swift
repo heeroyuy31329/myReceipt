@@ -36,7 +36,7 @@ class ReceiptListVM: ObservableObject {
                             switch result {
                             case .success(let data):
                                 DispatchQueue.main.async {
-                                    self.receiptPrizeData[self.period] = data
+                                    self.receiptPrizeData[data.invoYm] = data
 //                                    print("getReceiptPrizeByPeriod receiptPrizeData : \(self.receiptPrizeData)")
 //                                    print("取資料後兌獎")
                                     self.comparePrize()
