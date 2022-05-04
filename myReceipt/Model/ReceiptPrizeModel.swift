@@ -15,7 +15,7 @@ class ReceiptPrizeModel {
         let receiptPrize = ReceiptPrize(v: "0.1",
                                         code: "200",
                                         msg: "查詢成功",
-                                        invoYm: peroid,
+                                        invoYm: "11102",
                                         superPrizeNo: "18927486",// 18927486
                                         spcPrizeNo: "82050976",// 82050976
                                         spcPrizeNo2: "",
